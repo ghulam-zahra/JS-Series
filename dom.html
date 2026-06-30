@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+</head>
+<body style="background-color: #212121; color: #fff;">
+    <div class="container">
+        <ul class="unorderedList">
+            <li class="list">Apple</li>
+    
+        </ul>
+    </div>
+</body>
+<script>
+   function addFruits(fruits) {
+    const li = document.createElement("li");
+    li.innerHTML = `${addFruis}`;
+    document.querySelector(".list").appendChild(li);
+   }
+   addFruits("Banana")
+   addFruits("Mango")
+
+// optimize method
+   function addOptiFruits(fruits){
+    const li = document.createElement("li");
+    li.appendChild(document.createTextNode(fruits));
+    document.querySelector('.list').appendChild(li);
+   }
+   addOptiFruits("orange")
+
+   // Edit
+   const secondList = document.querySelector('li:nth-child(2)');
+   const newli = document.createElement('li');
+   secondList.textContent = "gauva";
+
+   secondList.replaceWith(newli)
+</script>
+</html>
