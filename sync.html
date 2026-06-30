@@ -1,0 +1,54 @@
+ <!-- js ---  1:  synchronous 2: single threaded language
+
+  **Execution Context ---  execute one line of code at a time
+ console log 1 then console log 2 and so on...........
+ Blocking code vs Non Blocking Code
+ block the flow of program.        read file sync
+  do not block the flow of program.   read a file async -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advance JS</title>
+</head>
+<body>
+    <h1>JavaScript</h1>
+    <button id="start">Start</button>
+    <button id="stop">Stop</button>
+</body>
+
+<script>
+// *********** setTimeOut() & clearTimeOut()  ********
+    const sayZahra = function(){
+        console.log("Zahra")
+    }
+
+
+  const chnageHeading =  function(){
+    document.querySelector("h1").innerHTML = "Best JS Series";
+  }  
+
+   const set1 =  setTimeout(chnageHeading,2000)
+
+    document.querySelector("#stop").addEventListener("click", function(){
+        clearTimeout(set1);
+        console.log("STOP");
+        
+    })
+
+
+// **********  setInterval()  &  clearInterval()  *********
+const interval = function(str){
+    console.log(str, "Now you are selected" , Date.now());
+    
+}
+
+const stopInterval = setInterval(interval, 10000 ,"hi");
+
+clearInterval(stopInterval)
+
+
+</script>
+</html>
