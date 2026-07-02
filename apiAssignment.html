@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .container{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    .card{
+        width: 300px;
+        height: 400px;
+        border: 1px solid white;
+        margin: 10px;
+        padding: 10px;
+    }
+    #id{
+        padding: 10px;
+        border: 20px solid black;
+    }
+</style>
+<body>
+    <button id="btn">Click Me</button>
+    <div class="container"></div>
+</body>
+<script>
+    const btn = document.getElementById("btn");
+    const div = document.querySelector(".container");
+    let data ;
+    const xhr = new XMLHttpRequest();
+    const reqAPI = "https://api.github.com/users/ghulam-zahra";
+    xhr.open("GET", reqAPI);
+    xhr.onreadystatechange = function () {
+        console.log(xhr.readyState);
+        if (xhr.readyState === 4) {
+            data = JSON.parse(xhr.responseText);
+            // console.log(typeof data);
+            // console.log(data.followers);
+            // console.log(data.following);
+            // console.log(data .avatar_url);
+        }
+    };
+    btn.addEventListener("click", function () {
+        div.innerHTML = `<h1>${data.login}</h1>
+        <img src="${data.avatar_url}" alt="Avatar" width="150px" height="150px ">
+        <p>Followers: ${data.followers}</p>
+        <p>Following: ${data.following}</p>`
+    });
+    xhr.send();
+</script>
+</html>
